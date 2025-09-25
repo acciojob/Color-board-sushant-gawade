@@ -4,65 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Board</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #111;
-      margin: 0;
-    }
-
-    .container {
-      display: grid;
-      grid-template-columns: repeat(40, 20px); /* 40 x 20 = 800 */
-      gap: 2px;
-    }
-
-    .square {
-      width: 20px;
-      height: 20px;
-      background: #222;
-      transition: background-color 1s ease;
-    }
-
-    .square:hover {
-      background-color: var(--hover-color);
-      transition: background-color 0s; /* instant color on hover */
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container"></div>
-
-  <script>
-    const container = document.querySelector('.container');
-    const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71'];
-
-    for (let i = 0; i < 800; i++) {
-      const square = document.createElement('div');
-      square.classList.add('square');
-
-      square.addEventListener('mouseover', () => setColor(square));
-      square.addEventListener('mouseleave', () => removeColor(square));
-
-      container.appendChild(square);
-    }
-
-    function setColor(element) {
-      const color = getRandomColor();
-      element.style.setProperty('--hover-color', color);
-      element.style.backgroundColor = color;
-    }
-
-    function removeColor(element) {
-      element.style.backgroundColor = '#222';
-    }
-
-    function getRandomColor() {
-      return colors[Math.floor(Math.random() * colors.length)];
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
