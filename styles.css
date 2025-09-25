@@ -1,22 +1,40 @@
-/*  your css code here. If applicable */
+/* General reset for better control */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #111;
-  margin: 0;
+    /* Center the board on the page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #111; /* Dark background to match the image */
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(40, 20px); /* 40 columns → 40 x 20 = 800 squares */
-  gap: 2px;
+    /* Set up a grid layout for 800 squares (e.g., 40x20) */
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px; /* Example size for 40 squares (20px each) */
+    height: 400px; /* Example size for 20 squares (20px each) */
+    max-width: 100%; /* Ensure responsiveness */
 }
 
 .square {
-  width: 20px;
-  height: 20px;
-  background: #222;
-  transition: background-color 1s ease; /* smooth fade-out */
+    /* Calculate size for 800 squares (40 * 20) in the 800x400 container */
+    width: 20px;
+    height: 20px;
+    background-color: #1d1d1d; /* Default dark color for unhovered squares */
+    
+    /* The core styling for a smooth transition */
+    /* This applies the transition to background-color, box-shadow, and transform */
+    transition: background-color 1s ease, box-shadow 1s ease, transform 0.1s;
+}
+
+/* Optional: Adding a small shadow when hovered for a glowing effect */
+.square.hovered {
+    box-shadow: 0 0 2px #fff, 0 0 10px #fff;
+    transform: scale(1.1); /* Slightly grow on hover for a better effect */
 }
